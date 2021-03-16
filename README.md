@@ -1,0 +1,2 @@
+# BAI
+Basic Archlinux Installer
