@@ -8,8 +8,9 @@ echo KEYMAP=de-latin1 > /etc/vconsole.conf
 echo '[multilib]' >> /etc/pacman.conf 
 echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf 
 pacman -Syy 
-pacman -S dialog wpa_supplicant --noconfirm  
+pacman -S dialog wpa_supplicant networkmanager network-manager-applet ppp --noconfirm  
 pacman -S grub --noconfirm  
+mkinitcpio -p linux-lts
 PART=$(df / | grep / | cut -d" " -f1) 
 grub-install $PART 
 grub-mkconfig -o /boot/grub/grub.cfg 
@@ -21,4 +22,5 @@ useradd -m -g users -G wheel -s /bin/bash $username
 echo enter password for the new user 
 passwd $username 
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers 
+systemctl enable NetworkManager
 reboot
