@@ -14,11 +14,11 @@ SWAPSIZE=+$(grep MemTotal /proc/meminfo | awk '{print $2 / 900000}')G
   echo $SWAPSIZE;
 
   echo n;
-  echo p;
   echo;
   echo;
-  echo a;
-  echo 1;
+  echo;
+  echo;
+  echo;
 
   echo w;
 ) | fdisk $DRIVE
