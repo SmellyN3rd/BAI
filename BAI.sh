@@ -5,6 +5,10 @@ DRIVE=/dev/$DRIVE
 SWAPSIZE=+$(grep MemTotal /proc/meminfo | awk '{print $2 / 900000}')G
 
 (
+  echo d;
+  echo d;
+  echo d;
+  echo d;
   echo o;
 
   echo n;
