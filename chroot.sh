@@ -12,7 +12,7 @@ pacman -S dialog wpa_supplicant networkmanager network-manager-applet ppp --noco
 pacman -S grub --noconfirm  
 mkinitcpio -p linux-lts
 PART=$(df / | grep / | cut -d" " -f1) 
-grub-install $PART 
+grub-install $PART::-1 
 grub-mkconfig -o /boot/grub/grub.cfg 
 clear 
 echo enter root password 
