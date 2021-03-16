@@ -2,7 +2,7 @@ lsblk -do NAME,SIZE
 echo 
 read -p 'Pick the drive to install to: ' DRIVE
 DRIVE=/dev/$DRIVE
-SWAPSIZE=$(grep MemTotal /proc/meminfo | awk '{print $2 / 900000}')G
+SWAPSIZE=+$(grep MemTotal /proc/meminfo | awk '{print $2 / 900000}')G
 
 (
   echo o;
@@ -11,7 +11,7 @@ SWAPSIZE=$(grep MemTotal /proc/meminfo | awk '{print $2 / 900000}')G
   echo;
   echo;
   echo;
-  echo +$SWAPSIZE;
+  echo $SWAPSIZE;
 
   echo n;
   echo p;
