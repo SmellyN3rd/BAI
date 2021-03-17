@@ -19,6 +19,7 @@ pacman -Syy
 
 pacman -S grub dialog wpa_supplicant networkmanager network-manager-applet ppp --noconfirm  
 
+clear
 cat drive.tmp
 cat drive.tmp | grub-install 
 sleep 10
