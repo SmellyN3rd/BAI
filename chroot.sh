@@ -26,11 +26,11 @@ clear
 
 echo enter root password 
 passwd
-echo
-read -p "enter your username: " username 
-useradd -m -g users -G wheel,storage,power -s /bin/bash $username 
-echo enter password for the user $username
-passwd $username 
+#echo
+#read -p "enter your username: " username 
+#useradd -m -g users -G wheel,storage,power -s /bin/bash $username 
+#echo enter password for the user $username
+#passwd $username 
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers 
 
 systemctl enable NetworkManager
