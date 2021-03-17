@@ -22,6 +22,7 @@ pacman -S grub dialog wpa_supplicant networkmanager network-manager-applet ppp -
 cat drive.tmp | grub-install 
 grub-mkconfig -o /boot/grub/grub.cfg 
 
+rm drive.tmp
 clear 
 
 echo enter root password 
@@ -31,5 +32,6 @@ useradd -m -g users -G wheel,storage,power -s /bin/bash $username
 echo enter password for the user $username
 passwd $username 
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers 
+
 systemctl enable NetworkManager
 exit
