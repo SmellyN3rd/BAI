@@ -33,8 +33,10 @@ mkswap $DRIVE\1 -L swap
 mount $DRIVE\2 /mnt
 swapon $DRIVE\1
 
-pacstrap /mnt base base-devel linux-lts linux-firmware dhcpcd netctl
+pacstrap /mnt base base-devel linux-lts linux-firmware
 
 genfstab -U -p /mnt >> /mnt/etc/fstab
+cat /mnt/etc/fstab
+sleep 10
 
 arch-chroot /mnt sh -c "$(curl -fsSL https://raw.githubusercontent.com/SmellyN3rd/BAI/main/chroot.sh)"
