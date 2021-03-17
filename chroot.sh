@@ -1,23 +1,29 @@
 ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime 
+
 echo archbox > /etc/hostname 
+
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen 
 echo "pl_PL.UTF-8 UTF-8" >> /etc/locale.gen 
 locale-gen 
 echo 'LANG="pl_PL.UTF-8"' > /etc/locale.conf 
+
 mkinitcpio -p linux-lts
-sleep 10
+
 echo KEYMAP=pl > /etc/vconsole.conf 
 echo FONT=Lat2-Terminus16.psfu.gz >> /etc/vconsole.conf 
 echo FONT_MAP=8859-2 >> /etc/vconsole.conf 
+
 echo '[multilib]' >> /etc/pacman.conf 
 echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf 
 pacman -Syy 
+
 pacman -S grub dialog wpa_supplicant networkmanager network-manager-applet ppp --noconfirm  
-grub-install /dev/sda
-sleep 10
+
+cat drive.tmp | grub-install 
 grub-mkconfig -o /boot/grub/grub.cfg 
-sleep 10
+
 clear 
+
 echo enter root password 
 passwd
 read -p "enter your username: " username 
