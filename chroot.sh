@@ -17,11 +17,9 @@ echo '[multilib]' >> /etc/pacman.conf
 echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf 
 pacman -Syy 
 
-pacman -S grub dialog wpa_supplicant networkmanager network-manager-applet ppp --noconfirm  
+pacman -S grub wpa_supplicant networkmanager network-manager-applet --noconfirm  
 
-clear
 grub-install --recheck $(<drive.tmp)
-sleep 10
 grub-mkconfig -o /boot/grub/grub.cfg 
 
 rm drive.tmp
@@ -29,6 +27,7 @@ clear
 
 echo enter root password 
 passwd
+echo
 read -p "enter your username: " username 
 useradd -m -g users -G wheel,storage,power -s /bin/bash $username 
 echo enter password for the user $username
