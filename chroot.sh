@@ -29,4 +29,3 @@ echo enter password for the new user
 passwd $username 
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers 
 systemctl enable NetworkManager
-reboot
