@@ -13,7 +13,7 @@ echo '[multilib]' >> /etc/pacman.conf
 echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf 
 pacman -Syy 
 pacman -S grub dialog wpa_supplicant networkmanager network-manager-applet ppp --noconfirm  
-grub-install --target=x86_64 --recheck
+grub-install /dev/sda --recheck
 sleep 10
 grub-mkconfig -o /boot/grub/grub.cfg 
 sleep 10
