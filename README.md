@@ -3,4 +3,4 @@ Basic Archlinux Installer - It does exactly what it's name says, nothing more, n
 You only set the drive you install to, the root password and you're done.
 
 ## Usage
-`curl -LO raw.githubusercontent.com/SmellyN3rd/BAI/main/BAI.sh && sh BAI.sh`\
+`curl -LO raw.githubusercontent.com/SmellyN3rd/BAI/main/BAI.sh && sh BAI.sh`
