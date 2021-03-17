@@ -1,3 +1,10 @@
+if [ "$(stat -c %d:%i /)" != "$(stat -c %d:%i /proc/1/root/.)" ]; then
+  echo "We are chrooted!"
+else
+  echo "Business as usual"
+fi
+
+sleep 10
 ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime 
 hwclock --systohc 
 echo archbox > /etc/hostname 
