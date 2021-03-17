@@ -17,7 +17,7 @@ echo '[multilib]' >> /etc/pacman.conf
 echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf 
 pacman -Syy 
 
-pacman -S grub wpa_supplicant networkmanager network-manager-applet xorg-server xorg-drivers xorg-xinit --noconfirm  
+pacman -S grub wpa_supplicant networkmanager network-manager-applet xorg xorg-drivers xorg-xinit --noconfirm  
 
 grub-install --recheck $(<drive.tmp)
 grub-mkconfig -o /boot/grub/grub.cfg 
