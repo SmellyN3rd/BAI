@@ -5,6 +5,7 @@ echo "pl_PL.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen 
 echo 'LANG="pl_PL.UTF-8"' > /etc/locale.conf 
 mkinitcpio -p linux-lts
+sleep 10
 echo KEYMAP=pl > /etc/vconsole.conf 
 echo FONT=Lat2-Terminus16.psfu.gz >> /etc/vconsole.conf 
 echo FONT_MAP=8859-2 >> /etc/vconsole.conf 
