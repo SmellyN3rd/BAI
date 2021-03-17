@@ -21,7 +21,7 @@ SWAPSIZE=+$(grep MemTotal /proc/meminfo | awk '{print $2 / 900000}')G
   echo;
   echo;
   echo;
-  echo;
+  echo a;
   echo;
 
   echo w;
