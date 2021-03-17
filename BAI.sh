@@ -35,6 +35,6 @@ swapon $DRIVE\1
 
 pacstrap /mnt base base-devel linux-lts linux-firmware nano dhcpcd netctl
 
-genfstab -pU /mnt >> /mnt/etc/fstab
+genfstab -U /mnt >> /mnt/etc/fstab
 
 arch-chroot /mnt sh -c "$(curl -fsSL https://raw.githubusercontent.com/SmellyN3rd/BAI/main/chroot.sh)"
