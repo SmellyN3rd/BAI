@@ -31,7 +31,7 @@ passwd
 #useradd -m -g users -G wheel,storage,power -s /bin/bash $username 
 #echo enter password for the user $username
 #passwd $username 
-echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers 
+echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers 
 
 systemctl enable NetworkManager
 exit
