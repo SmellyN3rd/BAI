@@ -1,4 +1,4 @@
-ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime 
+ln -sf /usr/share/zoneinfo/US/Central /etc/localtime 
 
 echo archbox > /etc/hostname 
 
