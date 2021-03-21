@@ -38,5 +38,7 @@ pacstrap /mnt base base-devel linux-lts linux-firmware
 genfstab -U -p /mnt >> /mnt/etc/fstab
 echo $DRIVE > /mnt/drive.tmp
 
-arch-chroot /mnt sh -c "$(curl -fsSL https://raw.githubusercontent.com/SmellyN3rd/BAI/main/chroot.sh)"
+read -p 'choose your language (available: en, pl)' LANG
+
+arch-chroot /mnt sh -c "$(curl -fsSL https://raw.githubusercontent.com/SmellyN3rd/BAI/main/chroot_$LANG.sh)"
 reboot
