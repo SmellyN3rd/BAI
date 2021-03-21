@@ -2,6 +2,7 @@ ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime
 
 echo archbox > /etc/hostname 
 
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen 
 echo "pl_PL.UTF-8 UTF-8" >> /etc/locale.gen 
 locale-gen 
 echo 'LANG="pl_PL.UTF-8"' > /etc/locale.conf 
