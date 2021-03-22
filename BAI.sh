@@ -4,7 +4,7 @@ read -p 'Pick the drive to install to: ' DRIVE
 DRIVE=/dev/$DRIVE
 SWAPSIZE=+$(grep MemTotal /proc/meminfo | awk '{print $2 / 900000}')G
 
-(
+echo -ne partitioning the drive... && (
   echo d;
   echo d;
   echo d;
@@ -25,20 +25,18 @@ SWAPSIZE=+$(grep MemTotal /proc/meminfo | awk '{print $2 / 900000}')G
   echo;
 
   echo w;
-) | fdisk $DRIVE
+) | fdisk $DRIVE > /dev/null && echo done
 
-mkfs.ext4  $DRIVE\2 -L root
-mkswap $DRIVE\1 -L swap
+echo -ne creating file systems... && mkfs.ext4  $DRIVE\2 -L root && mkswap $DRIVE\1 -L swap && echo done
 
-mount $DRIVE\2 /mnt
-swapon $DRIVE\1
+echo -ne mounting partitions... && mount $DRIVE\2 /mnt && swapon $DRIVE\1 && echo done
 
-pacstrap /mnt base base-devel linux-lts linux-firmware reflector
+echo -ne downloading needed files and creating file structure... && pacstrap /mnt base base-devel linux-lts linux-firmware reflector > /dev/null && echo done
 
-genfstab -U -p /mnt >> /mnt/etc/fstab
+echo -ne generating fstab... && genfstab -U -p /mnt >> /mnt/etc/fstab && echo done
 echo $DRIVE > /mnt/drive.tmp
 
-clear
+echo
 read -p 'choose your language (available: en, pl): ' LANG
 
 arch-chroot /mnt sh -c "$(curl -fsSL https://raw.githubusercontent.com/SmellyN3rd/BAI/main/chroot_$LANG.sh)"
