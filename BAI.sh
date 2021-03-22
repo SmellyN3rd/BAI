@@ -33,7 +33,7 @@ mkswap $DRIVE\1 -L swap
 mount $DRIVE\2 /mnt
 swapon $DRIVE\1
 
-pacstrap /mnt base base-devel linux-lts linux-firmware
+pacstrap /mnt base base-devel linux-lts linux-firmware reflector
 
 genfstab -U -p /mnt >> /mnt/etc/fstab
 echo $DRIVE > /mnt/drive.tmp
