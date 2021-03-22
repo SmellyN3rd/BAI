@@ -8,7 +8,7 @@ echo -ne running mkinitcpio... && mkinitcpio -p linux-lts > /dev/null && echo do
 
 echo -ne configuring vconsole... && echo KEYMAP=pl > /etc/vconsole.conf && echo FONT=Lat2-Terminus16.psfu.gz >> /etc/vconsole.conf && echo FONT_MAP=8859-2 >> /etc/vconsole.conf && echo done
 
-echo -ne configuring pacman and the mirrorlist... && echo '[multilib]' >> /etc/pacman.conf && echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf && reflector --country US --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist > /dev/null && pacman -Syy > /dev/null && echo done 
+echo -ne configuring pacman and the mirrorlist... && echo '[multilib]' >> /etc/pacman.conf && echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf && reflector --country Poland --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist > /dev/null && pacman -Syy > /dev/null && echo done 
 
 echo -ne configuring networking utilities... && pacman --noconfirm -S wpa_supplicant networkmanager network-manager-applet > /dev/null && systemctl enable NetworkManager > /dev/null && echo done
 
