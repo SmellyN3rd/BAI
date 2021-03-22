@@ -27,7 +27,7 @@ echo -ne partitioning the drive... && (
   echo w;
 ) | fdisk $DRIVE > /dev/null && echo done
 
-echo -ne creating file systems... && mkfs.ext4  $DRIVE\2 -L root && mkswap $DRIVE\1 -L swap && echo done
+echo -ne creating file systems... && mkfs.ext4  $DRIVE\2 -L root > /dev/null && mkswap $DRIVE\1 -L swap > /dev/null && echo done
 
 echo -ne mounting partitions... && mount $DRIVE\2 /mnt && swapon $DRIVE\1 && echo done
 
