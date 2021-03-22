@@ -28,7 +28,7 @@ echo -ne creating file systems... && mkfs.ext4  $DRIVE\2 -L root > /dev/null && 
 
 echo -ne mounting partitions... && mount $DRIVE\2 /mnt > /dev/null && swapon $DRIVE\1 > /dev/null && echo done
 
-echo -ne downloading needed files and creating file structure... && pacstrap /mnt base base-devel linux-lts linux-firmware reflector > /dev/null && echo done
+echo -ne downloading needed files and creating the file structure... && pacstrap /mnt base base-devel linux-lts linux-firmware reflector > /dev/null && echo done
 
 echo -ne generating fstab... && genfstab -U -p /mnt >> /mnt/etc/fstab && echo done
 echo $DRIVE > /mnt/drive.tmp
