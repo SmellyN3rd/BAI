@@ -10,7 +10,7 @@ echo -ne configuring vconsole... && echo KEYMAP=us > /etc/vconsole.conf && echo 
 
 echo -ne configuring pacman and the mirrorlist... && echo '[multilib]' >> /etc/pacman.conf && echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf && reflector --country US --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist &> /dev/null && pacman -Syy &> /dev/null && echo done 
 
-echo -ne configuring networking utilities... && pacman --noconfirm -S wpa_supplicant networkmanager network-manager-applet &> /dev/null && systemctl enable NetworkManager &> /dev/null && echo done
+echo -ne configuring networking utilities... && pacman --noconfirm -S wpa_supplicant networkmanager &> /dev/null && systemctl enable NetworkManager &> /dev/null && echo done
 
 echo -ne installing bootloader... && pacman --noconfirm -S grub &> /dev/null && grub-install --recheck $(<drive.tmp) &> /dev/null && grub-mkconfig -o /boot/grub/grub.cfg &> /dev/null && rm drive.tmp && echo done
 
