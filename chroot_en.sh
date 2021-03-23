@@ -1,4 +1,4 @@
-echo -ne setting timezone... && ln -sf /usr/share/zoneinfo/US/Central /etc/localtime && timedatectl set-ntp true &> /dev/null && echo done
+echo -ne setting timezone... && ln -sf /usr/share/zoneinfo/US/Central /etc/localtime && timedatectl --no-pager set-ntp true &> /dev/null && echo done
 
 echo -ne setting hostname... && echo archbox > /etc/hostname && echo done
 
