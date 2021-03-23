@@ -4,7 +4,7 @@ read -p 'Pick the drive to install to: ' DRIVE
 DRIVE=/dev/$DRIVE
 SWAPSIZE=+$(grep MemTotal /proc/meminfo | awk '{print $2 / 900000}')G
 
-
+echo
 echo -ne partitioning the drive... && dd if=/dev/zero of=$DRIVE bs=512 count=1 conv=notrunc &> /dev/null && (
   echo o;
 
