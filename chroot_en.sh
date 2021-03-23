@@ -1,4 +1,4 @@
-echo -ne setting timezone... && ln -sf /usr/share/zoneinfo/US/Central /etc/localtime && timedatectl set-ntp &> /dev/null true && echo done
+echo -ne setting timezone... && ln -sf /usr/share/zoneinfo/US/Central /etc/localtime && timedatectl set-ntp true &> /dev/null && echo done
 
 echo -ne setting hostname... && echo archbox > /etc/hostname && echo done
 
@@ -22,3 +22,4 @@ passwd
 
 echo installation complete, have fun :)
 exit
+&
