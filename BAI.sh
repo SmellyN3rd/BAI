@@ -1,3 +1,4 @@
+clear
 lsblk -do NAME,SIZE
 echo 
 read -p 'Pick the drive to install to: ' DRIVE
