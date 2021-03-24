@@ -24,7 +24,6 @@ echo -ne partitioning the drive... && dd if=/dev/zero of=$DRIVE bs=512 count=1 c
 
   echo w;
 ) | fdisk $DRIVE &> /dev/null 
-echo $DRIVE > /mnt/drive.tmp
 echo done
 
 echo -ne creating file systems... 
@@ -46,6 +45,7 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 echo done
 
 echo
+echo $DRIVE > /mnt/drive.tmp
 read -p 'choose your language (available: en, pl): ' LANG
 arch-chroot /mnt sh -c "$(curl -fsSL https://raw.githubusercontent.com/SmellyN3rd/BAI/main/chroot_$LANG.sh)"
 
