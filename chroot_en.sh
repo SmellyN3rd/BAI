@@ -12,14 +12,12 @@ echo -ne configuring pacman and the mirrorlist... && echo '[multilib]' >> /etc/p
 
 echo -ne configuring networking utilities... && pacman --noconfirm -S wpa_supplicant networkmanager &> /dev/null && systemctl enable NetworkManager &> /dev/null && echo done
 
-echo -ne installing bootloader... && pacman --noconfirm -S grub &> /dev/null && grub-install --recheck $(<drive.tmp) &> /dev/null && grub-mkconfig -o /boot/grub/grub.cfg &> /dev/null && rm drive.tmp && echo done
-
 echo -ne configuring the sudoers file... && echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers && echo done
+
+echo -ne installing bootloader... && pacman --noconfirm -S grub &> /dev/null && grub-install --recheck $(<drive.tmp) &> /dev/null && grub-mkconfig -o /boot/grub/grub.cfg &> /dev/null && rm drive.tmp && echo done
 
 echo
 echo enter root password 
 passwd
 
-echo installation complete, have fun :)
 exit
-&
