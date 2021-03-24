@@ -1,3 +1,5 @@
+echo
+
 echo -ne setting timezone... 
 ln -sf /usr/share/zoneinfo/US/Central /etc/localtime 
 echo done
