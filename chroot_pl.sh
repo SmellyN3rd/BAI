@@ -20,5 +20,4 @@ echo
 echo enter root password 
 passwd
 
-echo installation complete, have fun :)
 exit
