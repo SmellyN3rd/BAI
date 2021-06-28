@@ -8,6 +8,6 @@ You only set the drive you want to install to, your preferred language, the root
 You will need to boot into an archlinux installation medium, which you can get [here](https://archlinux.org/download/)\
 After you get to the command line type:
 
-`curl -sL miloszkusz.pl/BAI.sh | sh`
+`curl -LO miloszkusz.pl/BAI.sh && sh BAI.sh`
 
 Then you set the few settings mentioned above and that's it.
