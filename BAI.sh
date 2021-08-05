@@ -27,13 +27,23 @@ echo -ne partitioning the drive... && dd if=/dev/zero of=$DRIVE bs=512 count=1 c
 echo done
 
 echo -ne creating file systems... 
-mkfs.ext4  $DRIVE\2 -L root &> /dev/null 
-mkswap $DRIVE\1 -L swap &> /dev/null 
+if [[ $DRIVE == "nvme"* ]]; then
+  mkfs.ext4  $DRIVE\p2 -L root &> /dev/null 
+  mkswap $DRIVE\p1 -L swap &> /dev/null 
+ else
+  mkfs.ext4  $DRIVE\2 -L root &> /dev/null 
+  mkswap $DRIVE\1 -L swap &> /dev/null 
+ fi
 echo done
 
 echo -ne mounting partitions... 
-mount $DRIVE\2 /mnt &> /dev/null 
-swapon $DRIVE\1 &> /dev/null 
+if [[ $DRIVE == "nvme"* ]]; then
+  mount $DRIVE\p2 /mnt &> /dev/null 
+  swapon $DRIVE\p1 &> /dev/null 
+ else
+  mount $DRIVE\2 /mnt &> /dev/null 
+  swapon $DRIVE\1 &> /dev/null 
+ fi
 echo done
 
 echo -ne downloading needed files and creating the file structure... 
