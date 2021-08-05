@@ -27,7 +27,7 @@ echo -ne partitioning the drive... && dd if=/dev/zero of=$DRIVE bs=512 count=1 c
 echo done
 
 echo -ne creating file systems... 
-if [[ $DRIVE == "nvme"* ]]; then
+if [[ $DRIVE == *"nvme"* ]]; then
   mkfs.ext4  $DRIVE\p2 -L root &> /dev/null 
   mkswap $DRIVE\p1 -L swap &> /dev/null 
  else
@@ -37,7 +37,7 @@ if [[ $DRIVE == "nvme"* ]]; then
 echo done
 
 echo -ne mounting partitions... 
-if [[ $DRIVE == "nvme"* ]]; then
+if [[ $DRIVE == *"nvme"* ]]; then
   mount $DRIVE\p2 /mnt &> /dev/null 
   swapon $DRIVE\p1 &> /dev/null 
  else
