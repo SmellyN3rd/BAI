@@ -8,8 +8,7 @@ echo -ne setting hostname...
 echo archbox > /etc/hostname 
 echo done
 
-echo -ne generating locales... 
-echo "en_US.UTF-8 UTF-8" > /etc/locale.gen 
+echo -ne generating locales...
 echo "pl_PL.UTF-8 UTF-8" >> /etc/locale.gen 
 locale-gen &> /dev/null 
 echo 'LANG="pl_PL.UTF-8"' > /etc/locale.conf 
